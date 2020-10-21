@@ -1,0 +1,37 @@
+
+public class Singleton {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SingletonHungry instance= SingletonHungry.getInstance();
+		instance.test();
+		SingletonLazy instance2= SingletonLazy.getInstance();
+		instance2.test();
+	}
+	
+}
+
+class SingletonHungry{
+	private SingletonHungry() {}
+	private static SingletonHungry instance = new SingletonHungry();
+	public static SingletonHungry getInstance() {
+		return instance;
+	}//end getInstance
+	public void test() {
+		System.out.println("test SingletonHungry");
+	}//end test
+}//end class singletonHungry
+
+class SingletonLazy{
+	private SingletonLazy() {}
+	private static SingletonLazy instance;
+	public static SingletonLazy getInstance() {
+		if(instance == null) {
+			instance = new SingletonLazy();
+		}
+		return instance;
+	}//end getInstance
+	public void test() {
+		System.out.println("test SingletonLazy");
+	}//end test
+}//end class singletonLazy
